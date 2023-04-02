@@ -9,12 +9,6 @@ const io = socketio(server);
 
 const boatName = 'chat point'
 
-
-app.get("/",(req,res)=>{
-    res.json("HI");
-})
-
-
 io.on("connection", (socket) => {
     console.log("One user joined")
     socket.on('joinRoom', ({ username, room }) => {
