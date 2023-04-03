@@ -6,9 +6,13 @@ const { userJoin, getRoomUsers, getCurrentUser, userLeave } = require('./users')
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const cors = require("cors");
 
 const boatName = 'chat point'
 
+app.get("/",(req,res)=>{
+    res.json('The Chat server')
+})
 io.on("connection", (socket) => {
     console.log("One user joined")
     socket.on('joinRoom', ({ username, room }) => {
